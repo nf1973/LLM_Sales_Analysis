@@ -1,5 +1,4 @@
 import sqlite3
-#from openai import OpenAI 
 import openai
 import dotenv
 import os
@@ -15,9 +14,9 @@ if api == "OpenAI":
     )
 elif api == "AzureOpenAI":
     client = openai.AzureOpenAI(
-        azure_endpoint=os.environ["AZURE_OPENAI_ENDPOINT"],
-        api_version=os.environ["OPENAI_API_VERSION"],
         api_key=os.environ.get("AZURE_OPENAI_API_KEY"),
+        azure_endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT"),
+        api_version=os.environ.get("OPENAI_API_VERSION"),
     )
 
 model = "gpt-4o-mini"
